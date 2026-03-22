@@ -1,0 +1,10 @@
+2024-01-15 08:01:23 INFO User admin logged in successfully from 192.168.1.10
+2024-01-15 08:02:11 WARNING Failed login attempt for user admin from 203.0.113.5
+2024-01-15 08:02:45 WARNING Failed login attempt for user admin from 203.0.113.5
+2024-01-15 08:03:12 WARNING Failed login attempt for user admin from 203.0.113.5
+2024-01-15 08:03:45 ERROR Account admin locked after multiple failed attempts
+2024-01-15 08:10:00 INFO User john logged in from 192.168.1.20
+2024-01-15 08:15:33 INFO File report.pdf accessed by john from 192.168.1.20
+2024-01-15 09:01:00 WARNING Port scan detected from 198.51.100.42
+2024-01-15 09:02:00 WARNING Port scan detected from 198.51.100.42
+2024-01-15 09:05:00 ERROR Unauthorized access attempt to /admin from 198.51.100.42
