@@ -1,0 +1,3 @@
+{
+  "buildCommand": "CI= npm run build"
+}
