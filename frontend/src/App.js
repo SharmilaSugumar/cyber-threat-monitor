@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import {
-  injectStyles, DARK, LIGHT, sc, apiClient, MOCK_ALERTS, API,
-  Ico, I, Pulse, Skel, Badge, AuthPages, ApiKeyGuide,
+  injectStyles, DARK, LIGHT, sc, apiClient, MOCK_ALERTS,
+  Ico, I, Pulse, AuthPages, ApiKeyGuide,
   AnalysisResult, AlertsTable, ProfilePage, SettingsPage,
 } from "./shared";
 
