@@ -75,7 +75,7 @@ export default function App() {
       .then(r => setLoginHist(r.data))
       .catch(() => {});
     try {
-      const ws = new WebSocket("ws://localhost:8000/ws/logs");
+      const ws = new WebSocket("wss://cyber-threat-monitor-mm0f.onrender.com");
       ws.onmessage = e => {
         const d = JSON.parse(e.data);
         setLiveLog(prev => [d, ...prev].slice(0, 30));

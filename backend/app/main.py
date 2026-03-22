@@ -17,12 +17,15 @@ app = FastAPI(
 # ── CORS middleware ───────────────────────────────────────────────────────────
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://cyber-threat-monitor.vercel.app",
+        "https://cyber-threat-monitor-git-main-sharmilas-projects-6b1cb0dd.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # ── Include routers AFTER app is created ─────────────────────────────────────
 app.include_router(auth.router,     prefix="/api/auth", tags=["auth"])
 app.include_router(analysis.router, prefix="/api",      tags=["analysis"])
