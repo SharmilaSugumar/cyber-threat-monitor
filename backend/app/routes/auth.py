@@ -172,6 +172,24 @@ def register(data: CreateUser, db: Session = Depends(get_db)):
     return {"message": "Account created successfully"}
 
 
+@router.post("/register")
+def register(data: CreateUser, db: Session = Depends(get_db)):
+    """Public registration — no auth required."""
+    existing = db.query(User).filter(User.username == data.username).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Username already exists")
+    user = User(
+        username        = data.username,
+        email           = data.email,
+        full_name       = data.full_name,
+        role            = "analyst",
+        hashed_password = get_password_hash(data.password),
+    )
+    db.add(user)
+    db.commit()
+    return {"message": "Account created successfully"}
+
+
 # ── List all users (admin only) ───────────────────────────────────────────────
 @router.get("/users")
 def list_users(
