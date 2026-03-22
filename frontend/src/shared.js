@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const API = "https://cyber-threat-monitor-mm0f.onrender.com";
+export const API = "https://cyber-threat-monitor-mm0f.onrender.com/api";
 
 export const injectStyles = () => {
   if (document.getElementById("ctm-global")) return;

@@ -69,20 +69,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    if (!user) return;
-    fetchData();
-    apiClient.get("/auth/login-history")
-      .then(r => setLoginHist(r.data))
-      .catch(() => {});
-    try {
-      const ws = new WebSocket("wss://cyber-threat-monitor-mm0f.onrender.com");
-      ws.onmessage = e => {
-        const d = JSON.parse(e.data);
-        setLiveLog(prev => [d, ...prev].slice(0, 30));
-      };
-      return () => ws.close();
-    } catch {}
-  }, [user, fetchData]);
+  if (!user) return;
+  fetchData();
+  apiClient.get("/auth/login-history")
+    .then(r => setLoginHist(r.data))
+    .catch(() => {});
+  try {
+    const ws = new WebSocket("wss://cyber-threat-monitor-mm0f.onrender.com/ws/logs");
+    ws.onmessage = e => {
+      const d = JSON.parse(e.data);
+      setLiveLog(prev => [d, ...prev].slice(0, 30));
+    };
+    return () => ws.close();
+  } catch {}
+}, [user, fetchData]);
 
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({behavior:"smooth"});
